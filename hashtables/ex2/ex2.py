@@ -13,15 +13,27 @@ def reconstruct_trip(tickets, length):
     route = []
 
     for i in tickets:
+        # iterate through tickets
         cache[i.source] = i.destination
-
+    # set each val in cache to destination string
+    # drops repeats and first "none"
     pointer = cache['NONE']
-
+    # initialize pointer
     while len(route) < length:
         route.append(pointer)
         pointer = cache[pointer]
-        
+    # while route is less that the ticket count, append "destination" to cache
+    # when they are = sets to none string and returns
     return route
+
+# ticket_1 = Ticket("NONE", "PDX")
+# ticket_2 = Ticket("PDX", "DCA")
+# ticket_3 = Ticket("DCA", "NONE")
+#
+# tickets = [ticket_1, ticket_2, ticket_3]
+#
+# expected = ["PDX", "DCA", "NONE"]
+# result = reconstruct_trip(tickets, 3)
 
 # You've booked a really cheap one-way flight. Unfortunately, that means you have tons of layovers before you reach
 # your destination. The morning of, you woke up late and had to scramble to the airport to catch your first flight.
