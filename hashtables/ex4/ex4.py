@@ -6,13 +6,14 @@ def has_negatives(a):
 
     result = []
     for i in a:
+        # iterate through
         if -i in cache:
-            # if there is a negative version of the index
-
+            # if there is a negative occurrence of i
             result.append(i if i >= 0 else -i)
-            # makes it so what is appended is a positive # regardless
-
+            # append i to result
+        # else
         cache[i] = 1
+        # adds to cache gives i arbitrary value of 1
     return result
 
 
