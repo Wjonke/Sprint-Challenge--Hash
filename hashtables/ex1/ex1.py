@@ -1,10 +1,37 @@
 def get_indices_of_item_weights(weights, length, limit):
-
     """
     YOUR CODE HERE
     """
+    # Implement Cache
+    cache = {}
 
-    return None
+    def helper(arr, index=0):
+        # default index to 0
+        if index == len(weights):
+            return
+        # ends if at end of index
+
+        for i in range(index+1, len(weights)):
+            # increment index for each I until end of weights list
+
+            sum = weights[index] + weights[i]
+            # set sum to current i plus index
+
+            if sum not in cache:
+                if i > index:
+                    cache[sum] = (i, index)
+                else:
+                    cache[sum] = (index, i)
+            # if the sum is not already in index, sets higher value to[0] and lower to [1] of sum
+
+            helper(weights, index+1)
+
+    # recurse until limit is reached
+    helper(weights)
+    if limit in cache:
+        return cache[limit]
+    else:
+        return None
 
 # Given a package with a weight limit 'limit' and a list 'weights' of item weights, implement a function
 # get_indices_of_item_weights that finds two items whose sum of weights equals the weight limit limit.
