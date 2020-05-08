@@ -22,7 +22,7 @@ def get_indices_of_item_weights(weights, length, limit):
                     cache[sum] = (i, index)
                 else:
                     cache[sum] = (index, i)
-            # if the sum is not already in index, sets higher value to[0] and lower to [1] of sum
+            # if the sum is not already in index, sets higher index to[0] and lower to [1] of sum
 
             helper(weights, index+1)
 
