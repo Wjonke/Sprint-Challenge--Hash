@@ -6,11 +6,21 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    
     """
     YOUR CODE HERE
     """
+    cache = {}
+    route = []
 
+    for i in tickets:
+        cache[i.source] = i.destination
+
+    pointer = cache['NONE']
+
+    while len(route) < length:
+        route.append(pointer)
+        pointer = cache[pointer]
+        
     return route
 
 # You've booked a really cheap one-way flight. Unfortunately, that means you have tons of layovers before you reach

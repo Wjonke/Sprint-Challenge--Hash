@@ -13,6 +13,7 @@ def get_indices_of_item_weights(weights, length, limit):
 
         for i in range(index+1, len(weights)):
             # increment index for each I until end of weights list
+            # set range to next index to end
 
             sum = weights[index] + weights[i]
             # set sum to current i plus index
