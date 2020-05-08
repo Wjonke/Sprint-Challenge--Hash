@@ -11,7 +11,7 @@ def has_negatives(a):
             # if there is a negative occurrence of i
             result.append(i if i >= 0 else -i)
             # append i to result
-        # else
+        #  else
         cache[i] = 1
         # adds to cache gives i arbitrary value of 1
     return result
