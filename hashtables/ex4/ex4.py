@@ -1,9 +1,18 @@
 def has_negatives(a):
-
     """
     YOUR CODE HERE
     """
+    cache = {}
 
+    result = []
+    for i in a:
+        if -i in cache:
+            # if there is a negative version of the index
+
+            result.append(i if i >= 0 else -i)
+            # makes it so what is appended is a positive # regardless
+            
+        cache[i] = 1
     return result
 
 
